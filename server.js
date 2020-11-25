@@ -28,5 +28,6 @@ mongoose.connect(process.env.MONGODB_CONNECTION_STRING,{
 
 //set up routes
 
-
+app.use("/reading",require("./Routes/ReadRouter"));
 app.use("/user",require("./Routes/UserRouter"));
+
