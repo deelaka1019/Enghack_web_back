@@ -32,12 +32,13 @@ const storage = multer.diskStorage({
 
 
 
-  lrouter.post("/addaudio", upload.single('productImage'), (req, res, next) => {
+  lrouter.post("/addaudio/", upload.single('myImage'), (req, res, next) => {
   console.log(req.file);
     const product = new Listen({
       ndate: req.body.ndate,
       title: req.body.title,
-      productImage: req.file 
+      transcript: req.body.transcript,
+      myImage: req.file.path.replace(/\\/g, "/")
     }); 
     product
       .save()
@@ -48,6 +49,7 @@ const storage = multer.diskStorage({
           createdProduct: {
               ndate: result.ndate,
               title: result.title,
+              transcript:result.transcript
             //   productImage:result.path
           }
         });
@@ -60,6 +62,7 @@ const storage = multer.diskStorage({
       });
   });
   
+
 
 
   module.exports = lrouter;

@@ -4,13 +4,16 @@ const mongoose = require("mongoose");
 const listenSchema = new mongoose.Schema({
     ndate:{
         type:String,
-        required:true
+  
     },
     title:{
         type: String,
-        required: true,
+    
     },
-    productImage:{
+    transcript:{
+        type:String
+    },
+    myImage:{
         type:String,
     }
 })
